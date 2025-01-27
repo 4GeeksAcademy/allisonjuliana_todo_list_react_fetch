@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 
 const Home = () => {
@@ -6,8 +6,9 @@ const Home = () => {
   const [all, setAll] = useState([]);
   const [idDelete, setIdDelete] = useState([]);
 
+  useEffect(()=>{
     if(idDelete > 0 ){
-      function cutTask(){
+    function cutTask(){
         const requestOptions = {
           method: 'DELETE',
           headers: {'Content-Type': 'application/json'},
@@ -16,7 +17,9 @@ const Home = () => {
         fetch("https://playground.4geeks.com/todo/todos/"+idDelete, requestOptions)
         .then((data) => data)
       };
-      cutTask();}
+      cutTask();
+      }else{}
+  },[idDelete]);
 
   return (
     <div className="container">
