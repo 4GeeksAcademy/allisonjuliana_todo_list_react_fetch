@@ -4,7 +4,6 @@ import { AiOutlineClose } from "react-icons/ai";
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [all, setAll] = useState([]);
-console.log(all);
 
   function deleteUser(){
     const requestOptions = {
